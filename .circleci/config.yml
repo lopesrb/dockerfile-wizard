@@ -4,8 +4,8 @@ image_config: &image_config
   # either as project-specific environment variables
   # or as resources in your organization's org-global Context
 
-  IMAGE_NAME: YD
-  IMAGE_TAG: DEC2020
+  IMAGE_NAME: yd
+  IMAGE_TAG: dec2020
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
