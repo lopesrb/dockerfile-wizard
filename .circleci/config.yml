@@ -4,9 +4,8 @@ image_config: &image_config
   # either as project-specific environment variables
   # or as resources in your organization's org-global Context
 
-  IMAGE_NAME: YDDEC2020
-
-  IMAGE_TAG: 
+  IMAGE_NAME: YD
+  IMAGE_TAG: DEC2020
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
@@ -47,14 +46,14 @@ jobs:
 
       - run: docker build -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG .
 
-      - run: docker push $DOCKER_USERNAME/$IMAGE_NAME:dec2020 && sleep 10
+      - run: docker push $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG && sleep 10
 
       - store_artifacts:
           path: Dockerfile
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/YDDEC2020:
+      - image: $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG
         environment:
           <<: *image_config
 
